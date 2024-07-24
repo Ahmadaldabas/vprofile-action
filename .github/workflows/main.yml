@@ -16,3 +16,5 @@ jobs:
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v2
+        with:
+          projectBaseDir: src/
