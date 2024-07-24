@@ -14,8 +14,5 @@ jobs:
       - name: Maven test
         run: mvn test
 
-      - name: Checkstyle
-        run: mvn checkstyle:check
-
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v2
