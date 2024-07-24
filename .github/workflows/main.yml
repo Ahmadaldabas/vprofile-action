@@ -1,0 +1,20 @@
+name: main
+on: workflow_dispatch
+env:
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  SONAR_HOST_URL: https://sonarcloud.io
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v4
+
+      - name: Maven test
+        run: mvn test
+
+      - name: Checkstyle
+        run: mvn checkout:checkstyle
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@<2>
